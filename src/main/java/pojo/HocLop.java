@@ -3,7 +3,7 @@ package pojo;
 public class HocLop implements java.io.Serializable {
     private SinhVien sinhVien;
     private HocPhan hocPhan;
-    private double diemGK=-1,diemCK=-1,diemKhac=-1,diemTong=-1;
+    private float diemGK=-1,diemCK=-1,diemKhac=-1,diemTong=-1;
 
     public HocLop(SinhVien sinhVien, HocPhan hocPhan) {
         this.sinhVien = sinhVien;
@@ -26,35 +26,35 @@ public class HocLop implements java.io.Serializable {
         this.hocPhan = hocPhan;
     }
 
-    public double getDiemGK() {
+    public float getDiemGK() {
         return diemGK;
     }
 
-    public void setDiemGK(double diemGK) {
+    public void setDiemGK(float diemGK) {
         this.diemGK = diemGK;
     }
 
-    public double getDiemCK() {
+    public float getDiemCK() {
         return diemCK;
     }
 
-    public void setDiemCK(double diemCK) {
+    public void setDiemCK(float diemCK) {
         this.diemCK = diemCK;
     }
 
-    public double getDiemKhac() {
+    public float getDiemKhac() {
         return diemKhac;
     }
 
-    public void setDiemKhac(double diemKhac) {
+    public void setDiemKhac(float diemKhac) {
         this.diemKhac = diemKhac;
     }
 
-    public double getDiemTong() {
+    public float getDiemTong() {
         return diemTong;
     }
 
-    public void setDiemTong(double diemTong) {
+    public void setDiemTong(float diemTong) {
         this.diemTong = diemTong;
     }
 }

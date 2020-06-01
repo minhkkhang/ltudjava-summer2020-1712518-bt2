@@ -1,21 +1,24 @@
 <hibernate-mapping>
     <class catalog="quanlysinhvien" name="pojo.HocLop" table="hoclop">
-        <id name="maSinhVien" type="int">
-            <column length="11" name="MSSV"/>
-            <generator class="assigned"/>
-        </id>
-        <property name="hoTen" type="string">
-            <column length="50" name="HoTen"/>
+        <composite-id>
+            <key-many-to-one name="sinhVien" class="pojo.SinhVien">
+                <column name="MSSV" />
+            </key-many-to-one>
+            <key-many-to-one name="hocPhan" class="pojo.HocPhan">
+                <column name="MaHocPhan" />
+            </key-many-to-one>
+        </composite-id>
+        <property name="diemGK" type="float">
+            <column length="1" name="DiemGK"/>
         </property>
-        <property name="gioiTinh" type="int">
-            <column length="4" name="GioiTinh"/>
+        <property name="diemCK" type="float">
+            <column length="1" name="DiemCK"/>
         </property>
-        <property name="CMND" type="long">
-            <column length="15" name="CMND"/>
+        <property name="diemKhac" type="float">
+            <column length="1" name="DiemKhac"/>
         </property>
-        <many-to-one class="pojo.Lop" name="lop"
-                     fetch="select">
-            <column length="10" name="MaLop" not-null="true"/>
-        </many-to-one>
+        <property name="diemTong" type="float">
+            <column length="1" name="DiemTong"/>
+        </property>
     </class>
 </hibernate-mapping>
