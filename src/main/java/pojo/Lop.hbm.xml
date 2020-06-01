@@ -1,0 +1,15 @@
+<hibernate-mapping>
+    <class catalog="quanlysinhvien"
+           name="pojo.Lop" table="lop">
+        <id name="maLop" type="string">
+            <column length="10" name="MaLop"/>
+            <generator class="assigned"/>
+        </id>
+        <set inverse="true" name="sv">
+            <key>
+                <column length="10" name="MaLop" not-null="true"/>
+            </key>
+            <one-to-many class="pojo.SinhVien" lazy="false"/>
+        </set>
+    </class>
+</hibernate-mapping>
