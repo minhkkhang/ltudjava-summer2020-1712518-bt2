@@ -20,16 +20,22 @@ public class Login {
         frame.setVisible(true);
         this.loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-
                 String puname = login.textField1.getText();
                 String ppaswd = login.passwordField1.getText();
-                SinhVien sv=SinhVienDAO.layThongTinhSinhVien(puname);
+                SinhVien sv=null;
+                try{
+                    sv=SinhVienDAO.layThongTinhSinhVien(puname);
+                }
+                catch (NumberFormatException ex){}
 
                 boolean laGiaoVu = puname.compareTo("giaovu") == 0 && ppaswd.compareTo("giaovu") == 0;
                 if(sv!=null|| laGiaoVu) {
                     //MainMenu menu =new MainMenu();
                     if(laGiaoVu)Account.isGiaoVu=true;
-                    else Account.MSSV=Integer.parseInt(puname);
+                    else {
+                        Account.sv=sv;
+                    }
+                    MainLayout mainLayout=new MainLayout();
                     frame.dispose();
                 }
                 else if(puname.equals("") && ppaswd.equals("")){
@@ -44,9 +50,4 @@ public class Login {
             }
         });
     }
-    public static void main(String[] args) {
-        Login login=new Login();
-
-    }
-
 }
