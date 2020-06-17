@@ -9,6 +9,11 @@ public class HocPhan implements java.io.Serializable {
     private MonHoc monHoc;
     private Set<HocLop> hocLop=new HashSet<HocLop>(0);
 
+    public HocPhan(){
+        maHocPhan="";
+        lop=null;
+        monHoc=null;
+    }
     public HocPhan(String maHocPhan, Lop maLop, MonHoc maMonHoc) {
         this.maHocPhan = maHocPhan;
         this.lop = maLop;

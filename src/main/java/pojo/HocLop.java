@@ -4,7 +4,10 @@ public class HocLop implements java.io.Serializable {
     private SinhVien sinhVien;
     private HocPhan hocPhan;
     private float diemGK=-1,diemCK=-1,diemKhac=-1,diemTong=-1;
-
+    public HocLop(){
+        sinhVien=null;
+        hocPhan=null;
+    };
     public HocLop(SinhVien sinhVien, HocPhan hocPhan) {
         this.sinhVien = sinhVien;
         this.hocPhan = hocPhan;

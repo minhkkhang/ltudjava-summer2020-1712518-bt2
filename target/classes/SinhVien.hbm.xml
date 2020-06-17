@@ -4,7 +4,7 @@
             <column length="11" name="MSSV"/>
             <generator class="assigned"/>
         </id>
-        <property name="hoTen" type="string">
+        <property name="hoTen" type="java.lang.String">
             <column length="50" name="HoTen"/>
         </property>
         <property name="gioiTinh" type="int">
@@ -17,11 +17,11 @@
                      fetch="select">
             <column length="10" name="MaLop" not-null="true"/>
         </many-to-one>
-        <set inverse="true" name="hocLop">
+        <set inverse="true" name="hocLop" fetch="join" lazy="false">
             <key>
                 <column length="10" name="MSSV" not-null="true"/>
             </key>
-            <one-to-many class="pojo.HocLop" lazy="false"/>
+            <one-to-many class="pojo.HocLop"/>
         </set>
     </class>
 </hibernate-mapping>

@@ -1,15 +1,16 @@
 <hibernate-mapping>
     <class catalog="quanlysinhvien"
            name="pojo.Lop" table="lop">
-        <id name="maLop" type="string">
+        <id name="maLop" type="java.lang.String">
             <column length="10" name="MaLop"/>
             <generator class="assigned"/>
         </id>
-        <set inverse="true" name="sv">
+        <set inverse="true" name="sv"
+             fetch="join" lazy="false">
             <key>
                 <column length="10" name="MaLop" not-null="true"/>
             </key>
-            <one-to-many class="pojo.SinhVien" lazy="false"/>
+            <one-to-many class="pojo.SinhVien"/>
         </set>
     </class>
 </hibernate-mapping>

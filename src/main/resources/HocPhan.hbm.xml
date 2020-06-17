@@ -1,0 +1,22 @@
+<hibernate-mapping>
+    <class catalog="quanlysinhvien" name="pojo.HocPhan" table="hocphan">
+        <id name="maHocPhan" type="java.lang.String">
+            <column length="20" name="MaHocPhan"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="pojo.Lop" name="lop"
+                     fetch="select" lazy="false">
+            <column length="10" name="MaLop" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="pojo.MonHoc" name="monHoc"
+                     fetch="select" lazy="false">
+            <column length="10" name="MaMon" not-null="true"/>
+        </many-to-one>
+        <set inverse="true" name="hocLop" fetch="join" lazy="false">
+            <key>
+                <column length="10" name="MaHocPhan" not-null="true"/>
+            </key>
+            <one-to-many class="pojo.HocLop"/>
+        </set>
+    </class>
+</hibernate-mapping>

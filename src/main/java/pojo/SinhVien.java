@@ -11,6 +11,9 @@ public class SinhVien implements java.io.Serializable{
     private Lop lop;
     private Set<HocLop> hocLop=new HashSet<HocLop>(0);
 
+    public SinhVien(){
+        lop=null;
+    }
     public SinhVien(int maSinhVien, String hoTen, int gioiTinh, long CMND, Lop lop) {
         this.maSinhVien = maSinhVien;
         this.hoTen = hoTen;

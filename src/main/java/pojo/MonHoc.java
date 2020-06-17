@@ -3,7 +3,10 @@ package pojo;
 public class MonHoc implements java.io.Serializable{
     private String maMon;
     private String tenMon;
-
+    public MonHoc(){
+        maMon="";
+        tenMon="";
+    }
     public MonHoc(String maMon, String tenMon) {
         this.maMon = maMon;
         this.tenMon = tenMon;

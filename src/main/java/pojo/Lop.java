@@ -8,6 +8,7 @@ public class Lop implements java.io.Serializable {
         this.maLop = maLop;
     }
 
+    public Lop(){maLop="";}
     private String maLop;
     private Set<SinhVien> sv=new HashSet<SinhVien>(0);
     public String getMaLop() {

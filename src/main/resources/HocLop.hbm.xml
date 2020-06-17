@@ -1,0 +1,24 @@
+<hibernate-mapping>
+    <class catalog="quanlysinhvien" name="pojo.HocLop" table="hoclop">
+        <composite-id>
+            <key-many-to-one name="sinhVien" class="pojo.SinhVien">
+                <column name="MSSV" />
+            </key-many-to-one>
+            <key-many-to-one name="hocPhan" class="pojo.HocPhan">
+                <column name="MaHocPhan" />
+            </key-many-to-one>
+        </composite-id>
+        <property name="diemGK" type="float">
+            <column length="1" name="DiemGK"/>
+        </property>
+        <property name="diemCK" type="float">
+            <column length="1" name="DiemCK"/>
+        </property>
+        <property name="diemKhac" type="float">
+            <column length="1" name="DiemKhac"/>
+        </property>
+        <property name="diemTong" type="float">
+            <column length="1" name="DiemTong"/>
+        </property>
+    </class>
+</hibernate-mapping>

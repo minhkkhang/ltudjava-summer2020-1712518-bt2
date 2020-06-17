@@ -1,11 +1,11 @@
 <hibernate-mapping>
     <class catalog="quanlysinhvien"
            name="pojo.MonHoc" table="monhoc">
-        <id name="maMon" type="string">
+        <id name="maMon" type="java.lang.String">
             <column length="10" name="MaMon"/>
             <generator class="assigned"/>
         </id>
-        <property name="tenMon" type="string">
+        <property name="tenMon" type="java.lang.String">
             <column length="50" name="TenMon"/>
         </property>
     </class>
