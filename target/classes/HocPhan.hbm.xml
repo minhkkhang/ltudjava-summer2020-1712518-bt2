@@ -12,6 +12,9 @@
                      fetch="select" lazy="false">
             <column length="10" name="MaMon" not-null="true"/>
         </many-to-one>
+        <property name="phongHoc" type="java.lang.String">
+            <column length="5" name="PhongHoc"/>
+        </property>
         <set inverse="true" name="hocLop" fetch="join" lazy="false">
             <key>
                 <column length="10" name="MaHocPhan" not-null="true"/>

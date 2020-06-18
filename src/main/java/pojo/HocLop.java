@@ -1,5 +1,7 @@
 package pojo;
 
+import java.util.Objects;
+
 public class HocLop implements java.io.Serializable {
     private SinhVien sinhVien;
     private HocPhan hocPhan;
@@ -59,5 +61,53 @@ public class HocLop implements java.io.Serializable {
 
     public void setDiemTong(float diemTong) {
         this.diemTong = diemTong;
+    }
+
+    public String xemDiemCuaMotSV(){
+        StringBuilder builder=new StringBuilder();
+        builder.append(hocPhan.getMaHocPhan());
+        builder.append(" - ");
+        builder.append(hocPhan.getMonHoc().getTenMon());
+        builder.append(" - ");
+        builder.append(String.valueOf(diemGK));
+        builder.append(" - ");
+        builder.append(String.valueOf(diemCK));
+        builder.append(" - ");
+        builder.append(String.valueOf(diemKhac));
+        builder.append(" - ");
+        builder.append(String.valueOf(diemTong));
+        return builder.toString();
+    }
+    public String xemDiemCuaHocPhan(){
+        StringBuilder builder=new StringBuilder();
+        builder.append(sinhVien.getMaSinhVien());
+        builder.append(" - ");
+        builder.append(sinhVien.getHoTen());
+        builder.append(" - ");
+        builder.append(String.valueOf(diemGK));
+        builder.append(" - ");
+        builder.append(String.valueOf(diemCK));
+        builder.append(" - ");
+        builder.append(String.valueOf(diemKhac));
+        builder.append(" - ");
+        builder.append(String.valueOf(diemTong));
+        return builder.toString();
+    }
+    public String xemDSSVThamGiaHP(){
+        return sinhVien.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HocLop)) return false;
+        HocLop hocLop = (HocLop) o;
+        return Objects.equals(sinhVien, hocLop.sinhVien) &&
+                Objects.equals(hocPhan, hocLop.hocPhan);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sinhVien, hocPhan);
     }
 }

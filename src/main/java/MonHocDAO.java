@@ -2,15 +2,15 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import pojo.Lop;
-import pojo.SinhVien;
+import pojo.MonHoc;
 
-public class LopDAO {
-    public static Lop layThongTinLop(String maLop) {
-        Lop dm = null;
+public class MonHocDAO {
+    public static MonHoc layThongTinMonHoc(String maMonHoc) {
+        MonHoc dm = null;
         Session session = HibernateUtil.getSessionFactory()
                 .openSession();
         try {
-            dm = (Lop)session.get(Lop.class, maLop);
+            dm = (MonHoc)session.get(MonHoc.class, maMonHoc);
         } catch (HibernateException ex) {
             System.err.println(ex);
         } finally {
@@ -19,15 +19,15 @@ public class LopDAO {
         return dm;
     }
 
-    public static boolean themLop(Lop lop) {
+    public static boolean themMonHoc(MonHoc monHoc) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        if (LopDAO.layThongTinLop(lop.getMaLop())!=null) {
+        if (MonHocDAO.layThongTinMonHoc(monHoc.getMaMon())!=null) {
             return false;
         }
         Transaction transaction = null;
         try {
             transaction = session.beginTransaction();
-            session.save(lop);
+            session.save(monHoc);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

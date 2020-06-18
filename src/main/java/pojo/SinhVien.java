@@ -1,6 +1,7 @@
 package pojo;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class SinhVien implements java.io.Serializable{
@@ -72,5 +73,32 @@ public class SinhVien implements java.io.Serializable{
 
     public void setHocLop(Set<HocLop> hocLop) {
         this.hocLop = hocLop;
+    }
+    public String toString(){
+        StringBuilder builder=new StringBuilder();
+        builder.append(String.valueOf(maSinhVien));
+        builder.append(" - ");
+        builder.append(hoTen);
+        builder.append(" - ");
+        if(gioiTinh==1)builder.append("Nam");
+        else builder.append("Nu");
+        builder.append(" - ");
+        builder.append(CMND);
+        builder.append(" - ");
+        builder.append(lop.getMaLop());
+        return builder.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SinhVien sinhVien = (SinhVien) o;
+        return maSinhVien == sinhVien.maSinhVien;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(maSinhVien);
     }
 }

@@ -1,5 +1,6 @@
 -- MySQL Workbench Forward Engineering
-
+alter user 'root'@'localhost' identified with mysql_native_password by 'root';
+flush privileges;
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
@@ -59,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`HocPhan` (
   `MaHocPhan` VARCHAR(20) NOT NULL,
   `MaLop` VARCHAR(10) NOT NULL,
   `MaMon` VARCHAR(10) NOT NULL,
+  `PhongHoc` VARCHAR(5) NULL,
   PRIMARY KEY (`MaHocPhan`),
   INDEX `fk_HocPhan_Lop1_idx` (`MaLop` ASC) VISIBLE,
   INDEX `fk_HocPhan_MonHoc1_idx` (`MaMon` ASC) VISIBLE,
