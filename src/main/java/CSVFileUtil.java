@@ -114,6 +114,7 @@ public class CSVFileUtil {
                 System.out.println(ex.toString());
                 JOptionPane.showMessageDialog(parent,"Gap loi",
                     "Failure",JOptionPane.WARNING_MESSAGE);
+                return null;
             }
             try (Reader reader = new FileReader(csvFile);
                  CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
@@ -122,14 +123,10 @@ public class CSVFileUtil {
                          .withTrim());) {
                 List<CSVRecord> records=csvParser.getRecords();
                 HocPhan hocPhan=HocPhanDAO.layThongTinhHocPhan(records.get(0).get(0));
-                System.out.println(records.get(0).get(0));
                 if(hocPhan==null){
-                    System.out.println(HocPhanDAO.layDanhSachHocPhan().get(0).getMaHocPhan());
-                    String[] tokens=records.get(0).get(0).split("–");
-                    Lop lop=new Lop(tokens[0]);
-                    MonHoc mon=new MonHoc(tokens[1],"Unknown");
-                    hocPhan=new HocPhan(records.get(0).get(0),lop,mon,"...");
-                    HocPhanDAO.themHocPhan(hocPhan);
+                    JOptionPane.showMessageDialog(parent,"Học phần không tồn tại!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                    return null;
                 }
 
                 for (int i=2;i<records.size();i++) {
@@ -137,9 +134,7 @@ public class CSVFileUtil {
                     CSVRecord record=records.get(i);
                     SinhVien sv=SinhVienDAO.layThongTinhSinhVien(record.get(1));
                     if (sv==null){
-                        sv=new SinhVien(Integer.parseInt(record.get(1)),record.get(2),
-                                record.get(3).compareTo("Nam")==0?1:0,Long.parseLong(record.get(4)),hocPhan.getLop());
-                        SinhVienDAO.themSinhVien(sv);
+                        continue;
                     }
                     HocLop hl=new HocLop(sv,hocPhan);
                     data.add(hl);
@@ -178,13 +173,18 @@ public class CSVFileUtil {
                          .withTrim());) {
                 List<CSVRecord> records=csvParser.getRecords();
                 HocPhan hocPhan=HocPhanDAO.layThongTinhHocPhan(records.get(0).get(0));
+                if(hocPhan==null){
+                    JOptionPane.showMessageDialog(parent,"Học phần không tồn tại!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                    return null;
+                }
+
                 for (int i=2;i<records.size();i++) {
                     // Accessing values by Header names
                     CSVRecord record=records.get(i);
                     SinhVien sv=SinhVienDAO.layThongTinhSinhVien(record.get(1));
                     if (sv==null){
-                        sv=new SinhVien(Integer.parseInt(record.get(1)),record.get(2),
-                                record.get(3).compareTo("Nam")==0?1:0,Long.parseLong(record.get(4)),hocPhan.getLop());
+                        continue;
                     }
                     HocLop hl=new HocLop(sv,hocPhan);
                     hl.setDiemGK(Float.parseFloat(record.get(3)));

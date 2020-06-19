@@ -1,6 +1,8 @@
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import pojo.GiaoVu;
+import pojo.Lop;
 import pojo.SinhVien;
 
 import javax.persistence.Query;
@@ -86,6 +88,34 @@ public class SinhVienDAO {
         try {
             transaction = session.beginTransaction();
             session.delete(sv);
+            transaction.commit();
+        } catch (HibernateException ex) {
+            transaction.rollback();
+            System.err.println(ex);
+        } finally {
+            session.close();
+        }
+        return true;
+    }
+    public static GiaoVu getGiaoVu(){
+        GiaoVu dm = null;
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
+        try {
+            dm = (GiaoVu)session.get(GiaoVu.class, "giaovu");
+        } catch (HibernateException ex) {
+            System.err.println(ex);
+        } finally {
+            session.close();
+        }
+        return dm;
+    }
+    public static boolean capNhatMatKhauGiaoVu(GiaoVu gv) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.update(gv);
             transaction.commit();
         } catch (HibernateException ex) {
             transaction.rollback();

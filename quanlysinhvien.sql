@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`SinhVien` (
   `GioiTinh` TINYINT NOT NULL,
   `CMND` BIGINT(15) NOT NULL,
   `MaLop` VARCHAR(10) NOT NULL,
+  `MatKhau` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`MSSV`),
   INDEX `fk_SinhVien_Lop_idx` (`MaLop` ASC) VISIBLE,
   CONSTRAINT `fk_SinhVien_Lop`
@@ -101,6 +102,16 @@ CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`HocLop` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+
+-- -----------------------------------------------------
+-- Table `quanlysinhvien`.`GiaoVu`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`GiaoVu` (
+  `TenGV` VARCHAR(10) NOT NULL,
+  `MatKhau` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`TenGV`))
+ENGINE = InnoDB;
+insert into GiaoVu values ("giaovu","giaovu");
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

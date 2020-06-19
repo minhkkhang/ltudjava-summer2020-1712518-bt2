@@ -3,22 +3,30 @@ import pojo.HocPhan;
 import javax.swing.*;
 import java.awt.*;
 
-public class HocPhanRenderer extends JLabel implements ListCellRenderer<HocPhan>{
+public class HocPhanRenderer implements ListCellRenderer<HocPhan>{
     public HocPhanRenderer() {
-        setOpaque(true);
     }
     @Override
     public Component getListCellRendererComponent(JList<? extends HocPhan> list, HocPhan value, int index, boolean isSelected, boolean cellHasFocus) {
-
-        setText(value.toString());
+        JPanel panel=new JPanel(new GridLayout(1,5));
+        JLabel stt=new JLabel(String.valueOf(index+1));
+        JLabel maLop=new JLabel(value.getLop().getMaLop());
+        JLabel maMon=new JLabel(value.getMonHoc().getMaMon());
+        JLabel tenMon=new JLabel(value.getMonHoc().getTenMon());
+        JLabel phongHoc=new JLabel(value.getPhongHoc());
+        panel.add(stt);
+        panel.add(maLop);
+        panel.add(maMon);
+        panel.add(tenMon);
+        panel.add(phongHoc);
         if (isSelected) {
-            setBackground(list.getSelectionBackground());
-            setForeground(list.getSelectionForeground());
+            panel.setBackground(list.getSelectionBackground());
+            panel.setForeground(list.getSelectionForeground());
         } else {
-            setBackground(list.getBackground());
-            setForeground(list.getForeground());
+            panel.setBackground(list.getBackground());
+            panel.setForeground(list.getForeground());
         }
 
-        return this;
+        return panel;
     }
 }

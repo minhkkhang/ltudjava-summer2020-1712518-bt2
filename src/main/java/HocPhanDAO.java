@@ -41,6 +41,24 @@ public class HocPhanDAO {
         }
         return hp;
     }
+    public static List<HocPhan> layThongTinHocPhanTheoLop(String maLop){
+        List<HocPhan> ds = null;
+        Session session = HibernateUtil.getSessionFactory()
+                .openSession();
+        try {
+            String hql = "select hp from HocPhan hp" +
+                    " WHERE MaLop like :maLop";
+            javax.persistence.Query query = session.createQuery(hql);
+            query.setParameter("maLop", maLop);
+            ds = new ArrayList<HocPhan>(query.getResultList());
+        } catch (HibernateException ex) {
+            System.err.println(ex);
+        } finally {
+            session.close();
+        }
+        if(ds==null)return null;
+        return ds;
+    }
     public static boolean themHocPhan(HocPhan hp) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         if (HocPhanDAO.layThongTinhHocPhan(hp.getMaHocPhan())!=null) {

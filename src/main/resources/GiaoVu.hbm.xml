@@ -1,0 +1,12 @@
+<hibernate-mapping>
+    <class catalog="quanlysinhvien"
+           name="pojo.GiaoVu" table="giaovu">
+        <id name="ten" type="java.lang.String">
+            <column length="10" name="TenGV"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="matKhau" type="java.lang.String">
+            <column length="20" name="MatKhau"/>
+        </property>
+    </class>
+</hibernate-mapping>

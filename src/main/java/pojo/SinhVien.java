@@ -10,6 +10,7 @@ public class SinhVien implements java.io.Serializable{
     private int gioiTinh;
     private long CMND;
     private Lop lop;
+    private String matKhau;
     private Set<HocLop> hocLop=new HashSet<HocLop>(0);
 
     public SinhVien(){
@@ -21,6 +22,7 @@ public class SinhVien implements java.io.Serializable{
         this.gioiTinh = gioiTinh;
         this.CMND = CMND;
         this.lop = lop;
+        this.matKhau=String.valueOf(maSinhVien);
     }
 
     public int getMaSinhVien() {
@@ -74,6 +76,15 @@ public class SinhVien implements java.io.Serializable{
     public void setHocLop(Set<HocLop> hocLop) {
         this.hocLop = hocLop;
     }
+
+    public String getMatKhau() {
+        return matKhau;
+    }
+
+    public void setMatKhau(String matKhau) {
+        this.matKhau = matKhau;
+    }
+
     public String toString(){
         StringBuilder builder=new StringBuilder();
         builder.append(String.valueOf(maSinhVien));

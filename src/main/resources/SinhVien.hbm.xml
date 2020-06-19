@@ -13,6 +13,9 @@
         <property name="CMND" type="long">
             <column length="15" name="CMND"/>
         </property>
+        <property name="matKhau" type="java.lang.String">
+            <column length="45" name="MatKhau"/>
+        </property>
         <many-to-one class="pojo.Lop" name="lop"
                      fetch="select">
             <column length="10" name="MaLop" not-null="true"/>

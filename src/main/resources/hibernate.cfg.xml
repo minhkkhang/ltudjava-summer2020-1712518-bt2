@@ -19,6 +19,7 @@
         <mapping resource="MonHoc.hbm.xml"/>
         <mapping resource="HocPhan.hbm.xml"/>
         <mapping resource="HocLop.hbm.xml"/>
+        <mapping resource="GiaoVu.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

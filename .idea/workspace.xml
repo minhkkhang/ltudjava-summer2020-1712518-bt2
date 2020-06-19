@@ -9,8 +9,6 @@
   </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="hideInfoMessages" value="true" />
-    <option name="hideWarnings" value="true" />
-    <option name="HIDE_WARNINGS" value="true" />
     <option name="HIDE_INFO_MESSAGES" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -44,8 +42,9 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="210" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="3" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="215" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
@@ -93,54 +92,58 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1592422482347" />
-    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1592479234373">
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1592562902079">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1592479234373" />
-    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1592422473371">
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1592562902079" />
+    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1592514703971">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1592422473371" />
+    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1592514703971" />
     <state x="325" y="125" key="FileChooserDialogImpl" timestamp="1592320613235">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="325" y="125" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1592320613235" />
-    <state width="1323" height="164" key="GridCell.Tab.0.bottom" timestamp="1592494146093">
+    <state width="1323" height="281" key="GridCell.Tab.0.bottom" timestamp="1592573223862">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1592494146093" />
-    <state width="1323" height="164" key="GridCell.Tab.0.center" timestamp="1592494146093">
+    <state width="1323" height="281" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
+    <state width="1323" height="281" key="GridCell.Tab.0.center" timestamp="1592573223862">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1592494146093" />
-    <state width="1323" height="164" key="GridCell.Tab.0.left" timestamp="1592494146093">
+    <state width="1323" height="281" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
+    <state width="1323" height="281" key="GridCell.Tab.0.left" timestamp="1592573223862">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1592494146093" />
-    <state width="1323" height="164" key="GridCell.Tab.0.right" timestamp="1592494146093">
+    <state width="1323" height="281" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
+    <state width="1323" height="281" key="GridCell.Tab.0.right" timestamp="1592573223862">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="164" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1592494146093" />
+    <state width="1323" height="281" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
+    <state x="343" y="99" key="GuiDesigner.FormSource.Dialog" timestamp="1592565791475">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="343" y="99" key="GuiDesigner.FormSource.Dialog/0.0.1366.768@0.0.1366.768" timestamp="1592565791475" />
     <state x="213" y="39" key="Maven.ArtifactSearchDialog" timestamp="1591009307673">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="213" y="39" key="Maven.ArtifactSearchDialog/0.0.1366.768@0.0.1366.768" timestamp="1591009307673" />
-    <state x="25" y="0" key="SettingsEditor" timestamp="1592408367212">
+    <state x="25" y="0" key="SettingsEditor" timestamp="1592514723203">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="25" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1592408367212" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1592474470424">
+    <state x="25" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1592514723203" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1592552097174">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1592474470424" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1592552097174" />
     <state x="408" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592320489036">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="408" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.768@0.0.1366.768" timestamp="1592320489036" />
-    <state x="339" y="172" key="run.anything.popup" timestamp="1591007932710">
+    <state x="339" y="172" key="run.anything.popup" timestamp="1592554549807">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1591007932710" />
+    <state x="339" y="172" key="run.anything.popup/0.0.1366.768@0.0.1366.768" timestamp="1592554549807" />
     <state x="339" y="36" width="672" height="676" key="search.everywhere.popup" timestamp="1592479208739">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
