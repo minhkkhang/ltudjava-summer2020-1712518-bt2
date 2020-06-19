@@ -1,6 +1,8 @@
 import pojo.*;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,10 +51,30 @@ public class MainLayout {
     private JButton chinhSuaDiemCancelBtn;
     private JLabel chinhSuaDiemTarget;
     private JButton suaDiemBtn;
+    private JLabel tiLeHP;
+    private JTextField phucKhaoNgayStart;
+    private JTextField phucKhaoNgayEnd;
+    private JButton phucKhaoTaoBtn;
+    private JPanel panelTaoPhucKhao;
+    private JTextField taoPKMon;
+    private JRadioButton diemGiuaKyRadioButton;
+    private JRadioButton diemCuoiKyRadioButton;
+    private JRadioButton diemKhacRadioButton;
+    private JRadioButton diemTongRadioButton;
+    private JTextField taoPKDiem;
+    private JRadioButton daCapNhatRadioButton;
+    private JRadioButton chuaCapNhatRadioButton;
+    private JRadioButton chuaXemRadioButton;
+    private JList<PhucKhao> listPhucKhao;
+    private JTextArea taoPKLyDo;
+    private JButton taoPKBtn;
+    private JButton capNhatTrangThaiPKButton;
+    private JButton taiLaiDanhSachPKButton;
+    private JButton taiLaiDSXemDiem;
     private JFrame frame;
     private int times=0;
-    public static int soLuongDau=0;
-    private static int type=3;
+    public int soLuongDau=0;
+    private int type=3;
     private HocLop selectedHocLop;
     private String maHPDangXem="";
 
@@ -60,13 +82,16 @@ public class MainLayout {
         frame = new JFrame("Quản Lý Sinh Viên");
         frame.setContentPane(this.rootPanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         Dimension dim=Toolkit.getDefaultToolkit().getScreenSize();
-        frame.setPreferredSize(dim);
-        frame.setMinimumSize(dim);
+        frame.setPreferredSize(new Dimension(dim.width,500));
+        frame.setMinimumSize(new Dimension(dim.width,500));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.requestFocus();
+        DotPhucKhaoDAO.checkDotPK();
+        PhucKhaoDAO.inIt();
         setComponentIndex();
     }
     public void setComponentIndex(){
@@ -74,6 +99,7 @@ public class MainLayout {
         if(Account.isGiaoVu){
             tabbedPane1.setSelectedIndex(2);
             tabbedPane1.setEnabledAt(0,false);
+            tabbedPane1.setEnabledAt(7,false);
             userLabel.setText("Giáo vụ");
         }
         else{
@@ -81,7 +107,11 @@ public class MainLayout {
             tabbedPane1.setEnabledAt(2,false);
             tabbedPane1.setEnabledAt(4,false);
             tabbedPane1.setEnabledAt(5,false);
+            tabbedPane1.setEnabledAt(6,false);
             userLabel.setText(Account.sv.getHoTen() +" - "+Account.sv.getMaSinhVien());
+        }
+        if(!DotPhucKhaoDAO.dangTrongDotPK()){
+            tabbedPane1.setEnabledAt(7,false);
         }
         buttonDangXuat.addActionListener(new ActionListener() {
             @Override
@@ -205,6 +235,7 @@ public class MainLayout {
                 if(textMaHP.getText().isEmpty()){
                     if(SetListDSLop(textXemLop.getText())){
                         TenHP.setText("");
+                        tiLeHP.setText("");
                         type=3;
                     }
                 }
@@ -213,15 +244,16 @@ public class MainLayout {
                     maHPDangXem=maHP;
                     if(SetListDSLopHP(maHP)){
                         StringBuilder builder=new StringBuilder();
-                        builder.append(MainLayout.soLuongDau);
-                        builder.append(" đậu");
-                        builder.append(System.lineSeparator());
-                        builder.append("Tỉ lệ: ");
-                        double tile=(double)MainLayout.soLuongDau/(double)(listDSHocPhan.getModel().getSize());
+                        builder.append(soLuongDau);
+                        builder.append(" sv đậu");
+                        TenHP.setText(builder.toString());
+                        builder=new StringBuilder();
+                        builder.append("Tỉ lệ đậu: ");
+                        double tile=(double)soLuongDau/(double)(listDSHocPhan.getModel().getSize());
                         tile=tile*100;
                         builder.append(tile);
                         builder.append("%");
-                        TenHP.setText(builder.toString());
+                        tiLeHP.setText(builder.toString());
                         type=2;
                     }
                 }
@@ -246,7 +278,7 @@ public class MainLayout {
                 StringBuilder builder=new StringBuilder();
                 builder.append("MSSV: ");
                 builder.append(String.valueOf(hl.getSinhVien().getMaSinhVien()));
-                builder.append(";Ten: ");
+                builder.append("; Ten: ");
                 builder.append(hl.getSinhVien().getHoTen());
                 builder.append("; Ma hoc phan: ");
                 builder.append(hl.getHocPhan().getMaHocPhan());
@@ -292,6 +324,100 @@ public class MainLayout {
                 panelCapNhatDiem.setVisible(false);
             }
         });
+        phucKhaoTaoBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(phucKhaoNgayStart.getText().isEmpty()||phucKhaoNgayEnd.getText().isEmpty()){
+                    JOptionPane.showMessageDialog(panelDSLop,"Vui long nhap ngay bat dau/ket thuc!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                DotPhucKhao dpk=new DotPhucKhao("giaovu",phucKhaoNgayStart.getText().toString(),
+                        phucKhaoNgayEnd.getText().toString());
+                if(!DotPhucKhaoDAO.capNhatThongTinDotPK(dpk)){
+                    JOptionPane.showMessageDialog(panelDSLop,"Ngay bat dau/ket thuc khong hop le!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(panelDSLop,"Mo phuc khao thanh cong!",
+                            "Success",JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
+        taoPKBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!DotPhucKhaoDAO.dangTrongDotPK()){
+                    JOptionPane.showMessageDialog(panelDSLop,"Hien dang khong co dot phuc khao nao dien ra!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                String maMon=taoPKMon.getText();
+                MonHoc monHoc=MonHocDAO.layThongTinMonHoc(maMon);
+                if(monHoc==null){
+                    JOptionPane.showMessageDialog(panelDSLop,"Khong ton tai mon hoc nay!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                float diemMongMuon;
+                try{
+                    diemMongMuon=Float.parseFloat(taoPKDiem.getText());
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(panelDSLop,"Vui long nhap dung diem mong muon!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+                int cotDiem=1;
+                if(diemCuoiKyRadioButton.isSelected())cotDiem=2;
+                else {
+                    if(diemKhacRadioButton.isSelected())cotDiem=3;
+                    else {
+                        if(diemTongRadioButton.isSelected())cotDiem=4;
+                    }
+                }
+                PhucKhao pk=new PhucKhao(Account.sv,monHoc,cotDiem,diemMongMuon,taoPKLyDo.getText());
+                PhucKhaoDAO.themPhucKhao(pk);
+                JOptionPane.showMessageDialog(panelDSLop,"Them phuc khao thanh cong!",
+                        "Success",JOptionPane.WARNING_MESSAGE);
+                taoPKMon.setText("");
+                taoPKDiem.setText("");
+                taoPKLyDo.setText("");
+            }
+        });
+        taiLaiDanhSachPKButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SetListPhucKhao();
+            }
+        });
+        taiLaiDSXemDiem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SetListXemDiemMotSV();
+            }
+        });
+        capNhatTrangThaiPKButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                PhucKhao pk=listPhucKhao.getSelectedValue();
+                int trangThai=1;
+                if(chuaXemRadioButton.isSelected())trangThai=1;
+                if(chuaCapNhatRadioButton.isSelected())trangThai=2;
+                if(daCapNhatRadioButton.isSelected())trangThai=3;
+                pk.setTrangThai(trangThai);
+                if(PhucKhaoDAO.capNhatThongTinPhucKhao(pk)){
+                    JOptionPane.showMessageDialog(panelDSLop,"Cap nhat trang thai phuc khao stt "+pk.getStt()+" thanh cong!",
+                            "Success",JOptionPane.WARNING_MESSAGE);
+                    SetListPhucKhao();
+                }
+                else{
+                    JOptionPane.showMessageDialog(panelDSLop,"Cap nhat trang thai phuc khao stt "+pk.getStt()+" that bai!",
+                            "Failure",JOptionPane.WARNING_MESSAGE);
+                }
+
+            }
+        });
+        if(Account.isGiaoVu)SetListPhucKhao();
         SetListXemDiemMotSV();
     }
     public void SetListXemDiemMotSV(){
@@ -313,11 +439,12 @@ public class MainLayout {
                     "Failure",JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        MainLayout.soLuongDau=0;
+        soLuongDau=0;
         ArrayList<HocLop> list=new ArrayList<>(hp.getHocLop());
         DefaultListModel<HocLop> model=new DefaultListModel<>();
         for(int i=0;i<list.size();i++){
             model.add(i,list.get(i));
+            if(list.get(i).getDiemTong()>=5)soLuongDau++;
         }
         listDSHocPhan.setModel(model);
         listDSHocPhan.setCellRenderer(new XemDiemRenderer(2));
@@ -375,5 +502,18 @@ public class MainLayout {
         listHocPhan.setModel(model);
         listHocPhan.setCellRenderer(new HocPhanRenderer());
 
+    }
+    public void SetListPhucKhao(){
+        ArrayList<PhucKhao> list=new ArrayList<>();
+        try{
+            list.addAll(PhucKhaoDAO.layDanhSachPhucKhao());
+        }catch (Exception e){
+        }
+        DefaultListModel<PhucKhao> model=new DefaultListModel<>();
+        for(int i=0;i<list.size();i++){
+            model.add(i,list.get(i));
+        }
+        listPhucKhao.setModel(model);
+        listPhucKhao.setCellRenderer(new PhucKhaoRenderer());
     }
 }

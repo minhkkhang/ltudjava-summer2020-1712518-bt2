@@ -49,9 +49,6 @@ public class XemDiemRenderer implements ListCellRenderer<HocLop>{
             panel.add(tenSV);
             panel.add(gioiTinhSV);
             if(type==2){
-                if(value.getDiemTong()!=-1){
-                    if(value.getDiemTong()>=5)MainLayout.soLuongDau++;
-                }
                 JLabel diemGK=new JLabel(value.getDiemGK()==-1?"-":String.valueOf(value.getDiemGK()));
                 JLabel diemCK=new JLabel(value.getDiemCK()==-1?"-":String.valueOf(value.getDiemCK()));
                 JLabel diemKhac=new JLabel(value.getDiemKhac()==-1?"-":String.valueOf(value.getDiemKhac()));

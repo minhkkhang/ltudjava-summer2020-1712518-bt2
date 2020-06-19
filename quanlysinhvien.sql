@@ -104,6 +104,33 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
+-- Table `quanlysinhvien`.`PhucKhao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`PhucKhao` (
+  `CotDiem` SMALLINT(4) NULL,
+  `DiemMongMuon` FLOAT NULL,
+  `LyDo` NVARCHAR(150) NULL,
+  `MaMon` VARCHAR(10) NOT NULL,
+  `TinhTrang` SMALLINT(3) NOT NULL,
+  `MSSV` INT NOT NULL,
+  `STT` INT NOT NULL,
+  INDEX `fk_PhucKhao_MonHoc1_idx` (`MaMon` ASC) VISIBLE,
+  INDEX `fk_PhucKhao_SinhVien1_idx` (`MSSV` ASC) VISIBLE,
+  PRIMARY KEY (`STT`),
+  CONSTRAINT `fk_PhucKhao_MonHoc1`
+    FOREIGN KEY (`MaMon`)
+    REFERENCES `quanlysinhvien`.`MonHoc` (`MaMon`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_PhucKhao_SinhVien1`
+    FOREIGN KEY (`MSSV`)
+    REFERENCES `quanlysinhvien`.`SinhVien` (`MSSV`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `quanlysinhvien`.`GiaoVu`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`GiaoVu` (
@@ -112,6 +139,17 @@ CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`GiaoVu` (
   PRIMARY KEY (`TenGV`))
 ENGINE = InnoDB;
 insert into GiaoVu values ("giaovu","giaovu");
+
+-- -----------------------------------------------------
+-- Table `quanlysinhvien`.`MoPhucKhao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `quanlysinhvien`.`MoPhucKhao` (
+  `DotPhucKhao` VARCHAR(6) NOT NULL,
+  `NgayBatDau` VARCHAR(11) NULL,
+  `NgayKetThuc` VARCHAR(11) NULL,
+  PRIMARY KEY (`DotPhucKhao`))
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

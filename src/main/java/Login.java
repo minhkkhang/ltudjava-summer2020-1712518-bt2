@@ -20,6 +20,7 @@ public class Login {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.requestFocus();
         this.loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String puname = login.textField1.getText();

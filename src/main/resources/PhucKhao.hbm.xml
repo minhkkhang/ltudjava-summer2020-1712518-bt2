@@ -1,0 +1,28 @@
+<hibernate-mapping>
+    <class catalog="quanlysinhvien" name="pojo.PhucKhao" table="phuckhao">
+        <id name="stt" type="int">
+            <column length="10" name="STT"/>
+            <generator class="assigned"/>
+        </id>
+        <property name="cotDiem" type="int">
+            <column length="4" name="CotDiem"/>
+        </property>
+        <property name="diemMongMuon" type="float">
+            <column length="4" name="DiemMongMuon"/>
+        </property>
+        <property name="lyDo" type="java.lang.String">
+            <column length="150" name="LyDo"/>
+        </property>
+        <property name="trangThai" type="int">
+            <column length="3" name="TinhTrang"/>
+        </property>
+        <many-to-one class="pojo.SinhVien" name="sinhVien"
+                     fetch="select" lazy="false">
+            <column length="10" name="MSSV" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="pojo.MonHoc" name="monHoc"
+                     fetch="select" lazy="false">
+            <column length="10" name="MaMon" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

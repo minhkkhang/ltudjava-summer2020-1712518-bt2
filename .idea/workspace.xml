@@ -44,6 +44,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="3" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="215" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -92,34 +93,34 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="137" y="39" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1592422482347" />
-    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1592562902079">
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser" timestamp="1592602912078">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1592562902079" />
-    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1592514703971">
+    <state x="488" y="68" key="#com.intellij.ide.util.MemberChooser/0.0.1366.768@0.0.1366.768" timestamp="1592602912078" />
+    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1592573825232">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1592514703971" />
-    <state x="325" y="125" key="FileChooserDialogImpl" timestamp="1592320613235">
+    <state x="412" y="168" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768@0.0.1366.768" timestamp="1592573825232" />
+    <state x="325" y="125" key="FileChooserDialogImpl" timestamp="1592573886325">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="325" y="125" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1592320613235" />
-    <state width="1323" height="281" key="GridCell.Tab.0.bottom" timestamp="1592573223862">
+    <state x="325" y="125" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1592573886325" />
+    <state width="1323" height="281" key="GridCell.Tab.0.bottom" timestamp="1592608226367">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="281" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
-    <state width="1323" height="281" key="GridCell.Tab.0.center" timestamp="1592573223862">
+    <state width="1323" height="281" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1592608226367" />
+    <state width="1323" height="281" key="GridCell.Tab.0.center" timestamp="1592608226367">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="281" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
-    <state width="1323" height="281" key="GridCell.Tab.0.left" timestamp="1592573223862">
+    <state width="1323" height="281" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1592608226367" />
+    <state width="1323" height="281" key="GridCell.Tab.0.left" timestamp="1592608226367">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="281" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
-    <state width="1323" height="281" key="GridCell.Tab.0.right" timestamp="1592573223862">
+    <state width="1323" height="281" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1592608226367" />
+    <state width="1323" height="281" key="GridCell.Tab.0.right" timestamp="1592608226367">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="281" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1592573223862" />
+    <state width="1323" height="281" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1592608226367" />
     <state x="343" y="99" key="GuiDesigner.FormSource.Dialog" timestamp="1592565791475">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -128,14 +129,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="213" y="39" key="Maven.ArtifactSearchDialog/0.0.1366.768@0.0.1366.768" timestamp="1591009307673" />
-    <state x="25" y="0" key="SettingsEditor" timestamp="1592514723203">
+    <state x="25" y="0" key="SettingsEditor" timestamp="1592573898824">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="25" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1592514723203" />
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1592552097174">
+    <state x="25" y="0" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1592573898824" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog" timestamp="1592594104795">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1592552097174" />
+    <state x="379" y="208" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1592594104795" />
     <state x="408" y="277" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1592320489036">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

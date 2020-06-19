@@ -20,6 +20,8 @@
         <mapping resource="HocPhan.hbm.xml"/>
         <mapping resource="HocLop.hbm.xml"/>
         <mapping resource="GiaoVu.hbm.xml"/>
+        <mapping resource="PhucKhao.hbm.xml"/>
+        <mapping resource="DotPhucKhao.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
